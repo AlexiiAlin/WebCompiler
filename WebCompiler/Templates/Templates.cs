@@ -5,37 +5,66 @@ using System.Web;
 
 namespace WebCompiler
 {
-    public class Templates
-    {
-        public const string Params = @"
-            using System;
-            namespace Templates
-            {{
-                class Params 
-                {{
-                       
-                   public object[] GetParams() {{
-                        return new object[] {{
-                            {0}
-                        }};
-                   }}
-                }}
-            }}
-        ";
 
-        public static string GenerateTemplateForCode(string code)
-        {
-            var template = @"using System;
-                            namespace HelloWorld
-                            {
-                            class Hello 
-                            {
+    public abstract class CodeTemplate
+    {
+        public abstract string GetTemplate(params object[] args);
+        public abstract string ClassName { get; }
+        public string Namespace => "CodeCompiler";
+    }
+
+    public class ParamsTemplates : CodeTemplate
+    {
+        const string template = @"
+using System;
+
+namespace CodeCompiler
+{{
+    class Params 
+    {{
+                       
+        public object[] GetParams() {{
+            return new object[] {{
+                {0}
+            }};
+        }}
+    }}
+}}
 ";
-            template = template + code;
-            template = template + @"
-                                    }
-                                 }";
-            return template;
+
+        public override string ClassName => "Params";
+
+        public override string GetTemplate(params object[] args)
+        {
+            return String.Format(template, args);
+        }
+    }
+
+    public class MethodTemplate : CodeTemplate
+    {
+        const string template = @"
+using System;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace CodeCompiler
+{{
+    public class Code
+    {{
+        {0}
+    }}
+}}";
+
+        public override string ClassName => "Code";
+
+        public override string GetTemplate(params object[] args)
+        {
+            return String.Format(template, args);
         }
     }
 }
