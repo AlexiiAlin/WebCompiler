@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.CodeDom.Providers.DotNetCompilerPlatform;
 using WebCompiler.Models;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace WebCompiler.Controllers
 {
@@ -40,44 +42,47 @@ namespace WebCompiler.Controllers
                 }  
             ";
 
-            var result = ExecuteCode(code, "HelloWorld", "Hello", "Get", false, new int[] { 1, 2, 3, 4, 5 }, 5).ToString();
+            var result = ExecuteCode(code, "HelloWorld", "Hello", "Get", false, 10000, new int[] { 1, 2, 3, 4, 5 }, 5).ToString();
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
         [HttpPost]
-        public ActionResult Build(string code, string functionName, string parameters)
+        public ActionResult Build(string code, string functionName, string parameters, int timeLimit)
         {
             code = Templates.GenerateTemplateForCode(code);
 
             var paramsCode = String.Format(Templates.Params, parameters);
-            var compiledParams = ExecuteCode(paramsCode, "Templates", "Params", "GetParams", false) as object[];
+            var compiledParams = ExecuteCode(paramsCode, "Templates", "Params", "GetParams", false, 10000) as object[];
 
             var result = new CodeResult();
             try
             {
-                result.Result = ExecuteCode(code, "HelloWorld", "Hello", functionName, false, compiledParams).ToString();
+                result.Result = ExecuteCode(code, "HelloWorld", "Hello", functionName, false, timeLimit, compiledParams).ToString();
+            }
+            catch(StackOverflowException e)
+            {
+                result.Result = e.Message;
             }
             catch (Exception e)
             {
                 result.Errors = e.Message;
+
             }
             return Json(result);
         }
+
+        //public string FormatErrorMessage ( string error)
+        //{
+        //    var index = 0;
+        //    var copyError = error;
+        //    while (index != -1)
+        //    {
+        //        index = copyError.IndexOf("Line");
+        //        error.Insert(index, "<br/>");
+        //        index+=
+        //    }
+        //}
 
         private Assembly BuildAssembly(string code)
         {
@@ -87,12 +92,13 @@ namespace WebCompiler.Controllers
             compilerparams.GenerateExecutable = false;
             compilerparams.GenerateInMemory = true;
             CompilerResults results = compiler.CompileAssemblyFromSource(compilerparams, code);
+
             if (results.Errors.HasErrors)
             {
                 StringBuilder errors = new StringBuilder("Compiler Errors :\r\n");
                 foreach (CompilerError error in results.Errors)
                 {
-                    errors.AppendFormat("Line {0},{1}\t: {2}\n", error.Line-5, error.Column, error.ErrorText);
+                    errors.AppendFormat("<br/>Line {0},{1}\t: {2}\n", error.Line-5, error.Column, error.ErrorText);
                 }
                 throw new Exception(errors.ToString());
             }
@@ -102,7 +108,7 @@ namespace WebCompiler.Controllers
             }
         }
 
-        public object ExecuteCode(string code, string namespacename, string classname, string functionname, bool isstatic, params object[] args)
+        public object ExecuteCode(string code, string namespacename, string classname, string functionname, bool isstatic, int timeLimit, params object[] args)
         {
             object returnval = null;
             Assembly asm = BuildAssembly(code);
@@ -118,8 +124,28 @@ namespace WebCompiler.Controllers
                 type = instance.GetType();
             }
             MethodInfo method = type.GetMethod(functionname);
-            returnval = method.Invoke(instance, args);
+            returnval = ExecuteMethod(method, instance, timeLimit, args);
+
             return returnval;
+        }
+
+        private object ExecuteMethod(MethodInfo method, object instance, int timeLimit, params object[] args) 
+        {
+            var tokenSource = new CancellationTokenSource();
+            CancellationToken token = tokenSource.Token;
+            var task = Task.Factory.StartNew(() => method.Invoke(instance, args));
+
+            if(!task.Wait(timeLimit, token))
+            {
+                tokenSource.Cancel();
+                if (task.IsCompleted)
+                {
+                    task.Dispose();
+                }
+                throw new StackOverflowException("Time exceeded");
+            }
+
+            return task.Result;
         }
     }
 }

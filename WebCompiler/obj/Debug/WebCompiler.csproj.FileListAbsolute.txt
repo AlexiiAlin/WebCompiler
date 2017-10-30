@@ -40,3 +40,45 @@ C:\Users\alin.alexii\Documents\Visual Studio 2017\Projects\WebCompiler\WebCompil
 C:\Users\alin.alexii\Documents\Visual Studio 2017\Projects\WebCompiler\WebCompiler\bin\Microsoft.AI.Web.xml
 C:\Users\alin.alexii\Documents\Visual Studio 2017\Projects\WebCompiler\WebCompiler\obj\Debug\WebCompiler.dll
 C:\Users\alin.alexii\Documents\Visual Studio 2017\Projects\WebCompiler\WebCompiler\obj\Debug\WebCompiler.pdb
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\ApplicationInsights.config
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\WebCompiler.dll.config
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\WebCompiler.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\WebCompiler.pdb
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Antlr3.Runtime.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Microsoft.AI.Web.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Microsoft.ApplicationInsights.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Newtonsoft.Json.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\System.Web.Helpers.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\System.Web.Mvc.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\System.Web.Optimization.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\System.Web.Razor.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\System.Web.WebPages.Deployment.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\System.Web.WebPages.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\System.Web.WebPages.Razor.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\WebGrease.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\System.Web.Helpers.xml
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\System.Web.Mvc.xml
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\System.Web.Optimization.xml
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\System.Web.Razor.xml
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\System.Web.WebPages.xml
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\System.Web.WebPages.Deployment.xml
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\System.Web.WebPages.Razor.xml
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Antlr3.Runtime.pdb
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Newtonsoft.Json.xml
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Microsoft.ApplicationInsights.xml
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\bin\Microsoft.AI.Web.xml
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\obj\Debug\WebCompiler.csprojResolveAssemblyReference.cache
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\obj\Debug\WebCompiler.csproj.CoreCompileInputs.cache
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\obj\Debug\WebCompiler.dll
+C:\Users\tudor.barcan\Desktop\WebCompiler\WebCompiler\obj\Debug\WebCompiler.pdb

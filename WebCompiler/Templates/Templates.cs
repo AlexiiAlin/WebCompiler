@@ -30,7 +30,7 @@ namespace WebCompiler
                             {
                             class Hello 
                             {
-                            ";
+";
             template = template + code;
             template = template + @"
                                     }
