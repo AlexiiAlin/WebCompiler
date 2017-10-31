@@ -15,8 +15,9 @@ namespace WebCompiler.Code
         where T : CodeTemplate, new()
     {
         private CodeTemplate template;
+        private int numberOfLinesDelay = 13;
 
-        public CSharpCompiler()
+    public CSharpCompiler()
         {
             template = new T();
         }
@@ -75,7 +76,7 @@ namespace WebCompiler.Code
                 StringBuilder errors = new StringBuilder("Compiler Errors :\r\n");
                 foreach (CompilerError error in results.Errors)
                 {
-                    errors.AppendFormat("<br/>Line {0},{1}\t: {2}\n", error.Line - 5, error.Column, error.ErrorText);
+                    errors.AppendFormat("<br/>Line {0},{1}\t: {2}\n", error.Line - numberOfLinesDelay, error.Column, error.ErrorText);
                 }
                 throw new Exception(errors.ToString());
             }

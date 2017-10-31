@@ -16,7 +16,6 @@ namespace WebCompiler.Controllers
 {
     public class HomeController : Controller
     {
-        
         public ActionResult Index()
         {
             var method = @"public string Test() { return ""Hello World!""; }";
