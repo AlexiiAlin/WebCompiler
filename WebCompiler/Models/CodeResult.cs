@@ -7,7 +7,7 @@ namespace WebCompiler.Models
 {
     public class CodeResult
     {
-        public string Result { get; set; }
+        public object Result { get; set; }
 
         public string Errors { get; set; }
     }
