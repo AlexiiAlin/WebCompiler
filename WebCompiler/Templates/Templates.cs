@@ -22,8 +22,8 @@ namespace CodeCompiler
 {{
     class Params 
     {{
-                       
-        public object[] GetParams() {{
+                      
+        unsafe public object[] GetParams() {{
             return new object[] {{
                 {0}
             }};
@@ -53,8 +53,9 @@ using System.Threading;
 using System.Threading.Tasks;
 namespace CodeCompiler
 {{
-    public class Code
+    unsafe public class Code
     {{
+
         {0}
     }}
 }}";

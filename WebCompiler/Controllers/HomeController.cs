@@ -31,7 +31,7 @@ namespace WebCompiler.Controllers
 
             try
             {
-                result.Result = new CSharpCompiler<MethodTemplate>().ExecuteCode(code, functionName, timeLimit, compiledParams).ToString();
+                result.Result = new CSharpCompiler<MethodTemplate>().ExecuteCode(code, functionName, timeLimit, compiledParams);
             }
             catch(StackOverflowException e)
             {

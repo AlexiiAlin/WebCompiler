@@ -1,6 +1,7 @@
 ﻿using Microsoft.CodeDom.Providers.DotNetCompilerPlatform;
 using System;
 using System.CodeDom.Compiler;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -52,7 +53,6 @@ namespace WebCompiler.Code
             {
                 returnval = ExecuteMethod(method, instance, args);
             }
-            
 
             return returnval;
         }
@@ -61,7 +61,10 @@ namespace WebCompiler.Code
         {
             CSharpCodeProvider provider = new CSharpCodeProvider();
             ICodeCompiler compiler = provider.CreateCompiler();
-            CompilerParameters compilerparams = new CompilerParameters();
+            CompilerParameters compilerparams = new CompilerParameters()
+            {
+                CompilerOptions = "/unsafe"
+            };
             compilerparams.ReferencedAssemblies.Add("mscorlib.dll");
             compilerparams.ReferencedAssemblies.Add("System.dll");
             compilerparams.ReferencedAssemblies.Add("System.Core.dll");
