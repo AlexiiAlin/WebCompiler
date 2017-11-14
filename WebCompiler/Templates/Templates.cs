@@ -25,7 +25,7 @@ namespace CodeCompiler
                       
         unsafe public object[] GetParams() {{
             return new object[] {{
-                {0}
+{0}
             }};
         }}
     }}
@@ -55,8 +55,7 @@ namespace CodeCompiler
 {{
     unsafe public class Code
     {{
-
-        {0}
+{0}
     }}
 }}";
 
